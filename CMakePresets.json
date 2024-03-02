@@ -1,0 +1,36 @@
+{
+    "version": 6, 
+    "configurePresets": [
+        {
+            "name": "default",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/_build",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            }
+        },
+        {
+            "name": "vs2022",
+            "inherits": "default",
+            "displayName": "Visual Studio 2022",
+            "generator" : "Visual Studio 17 2022",
+            "architecture": "x64"
+        },
+        {
+            "name": "xcode",
+            "inherits": "default",
+            "displayName": "Xcode",
+            "generator" : "Xcode"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "vs2022",
+            "configurePreset": "vs2022"
+        },
+        {
+            "name": "xcode",
+            "configurePreset": "xcode"
+        }
+    ]
+}
